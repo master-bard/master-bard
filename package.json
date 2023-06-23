@@ -4,10 +4,12 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@nrwl/nx-cloud": "latest",
     "@nrwl/workspace": "15.9.4",
-    "nx": "15.9.4"
+    "@nx/react": "^16.3.2",
+    "@nxext/capacitor": "^16.3.0",
+    "@nxext/ionic-react": "^16.2.0",
+    "nx": "16.3.2"
   }
 }
