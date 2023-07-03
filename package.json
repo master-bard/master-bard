@@ -73,6 +73,7 @@
 		"class-transformer": "^0.5.1",
 		"class-validator": "^0.14.0",
 		"i18next": "^23.2.6",
+		"i18next-browser-languagedetector": "^7.1.0",
 		"i18next-http-backend": "^2.2.1",
 		"morgan": "^1.10.0",
 		"react": "18.2.0",

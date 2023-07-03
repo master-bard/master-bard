@@ -7,16 +7,16 @@ import {
 } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 const Home: React.FC = () => {
-	const [t] = useTranslation();
+	const { t } = useTranslation();
 	return (
 		<IonPage>
 			<IonHeader>
 				<IonToolbar>
 					<IonTitle>Blank</IonTitle>
-					<IonTitle>{t('hello')}</IonTitle>
+					<IonTitle>{t('welcome')}</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 			<IonContent fullscreen>
