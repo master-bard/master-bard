@@ -10,13 +10,13 @@ import './Home.css';
 import { useTranslation, Trans } from 'react-i18next';
 
 const Home: React.FC = () => {
-	const { t } = useTranslation();
+	const { t } = useTranslation(['test']);
 	return (
 		<IonPage>
 			<IonHeader>
 				<IonToolbar>
 					<IonTitle>Blank</IonTitle>
-					<IonTitle>{t('welcome')}</IonTitle>
+					<IonTitle>{t('test', { ns: 'test' })}</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 			<IonContent fullscreen>
