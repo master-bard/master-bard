@@ -17,7 +17,10 @@
 		"paths": {
 			"@master-bard/api/enums": ["libs/api/enums/src/index.ts"],
 			"@master-bard/api/exceptions": ["libs/api/exceptions/src/index.ts"],
-			"@master-bard/api/interceptors": ["libs/api/interceptors/src/index.ts"]
+			"@master-bard/api/interceptors": [
+				"libs/api/interceptors/src/index.ts"
+			],
+			"@master-bard/translation": ["libs/translation/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
