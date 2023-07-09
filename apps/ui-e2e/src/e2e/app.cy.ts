@@ -8,6 +8,6 @@ describe('app-blank', () => {
 		cy.login('my-email@something.com', 'myPassword');
 
 		// Function helper example, see `../support/app.po.ts` file
-		getGreeting().contains('Ready to create an app?');
+		getGreeting().contains('Tab 1');
 	});
 });
