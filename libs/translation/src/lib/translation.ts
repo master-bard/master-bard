@@ -10,8 +10,8 @@ i18n
   .init<HttpBackendOptions>({
     debug: true,
     fallbackLng: undefined,
-    lng: 'es',
-    defaultNS: 'es',
+    lng: 'en',
+    defaultNS: 'en',
     interpolation: {
       escapeValue: false,
     },

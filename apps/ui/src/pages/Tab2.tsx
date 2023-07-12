@@ -10,7 +10,7 @@ import './Tab2.css';
 import { useTranslation } from 'react-i18next';
 
 const Tab2: React.FC = () => {
-	const { t } = useTranslation(['welcome']);
+	const { t } = useTranslation(['example']);
 	return (
 		<IonPage>
 			<IonHeader>

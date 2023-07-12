@@ -10,7 +10,6 @@ import './Tab1.css';
 import { useTranslation } from 'react-i18next';
 
 const Tab1: React.FC = () => {
-	const { t } = useTranslation(['test']);
 	return (
 		<IonPage>
 			<IonHeader>
@@ -21,7 +20,7 @@ const Tab1: React.FC = () => {
 			<IonContent fullscreen>
 				<IonHeader collapse="condense">
 					<IonToolbar>
-						<IonTitle size="large">{t('test')}</IonTitle>
+						<IonTitle size="large">Tab 1</IonTitle>
 					</IonToolbar>
 				</IonHeader>
 				<ExploreContainer name="Tab 1 page" />
