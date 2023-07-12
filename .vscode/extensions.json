@@ -1,11 +1,11 @@
 {
-  "recommendations": [
-	"nrwl.angular-console",
-	"esbenp.prettier-vscode",
-	"firsttris.vscode-jest-runner",
-	"dbaeumer.vscode-eslint",
-	"vunguyentuan.vscode-css-variables",
-	"streetsidesoftware.code-spell-checker",
-	"mikehanson.auto-barrel"
-]
+	"recommendations": [
+		"nrwl.angular-console",
+		"esbenp.prettier-vscode",
+		"firsttris.vscode-jest-runner",
+		"dbaeumer.vscode-eslint",
+		"vunguyentuan.vscode-css-variables",
+		"streetsidesoftware.code-spell-checker",
+		"mikehanson.auto-barrel"
+	]
 }
