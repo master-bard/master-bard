@@ -39,3 +39,10 @@
 - [Cyclic - Host](https://www.cyclic.sh/pricing/)
 - [Railway](https://railway.app/)
 - [Netlify](https://www.netlify.com/)
+
+
+## Prisma Set Up
+
+- run migrations `npx prisma migrate dev`
+
+- run seeder `npx prisma db seed`

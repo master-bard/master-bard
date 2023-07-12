@@ -20,7 +20,8 @@
 			"@master-bard/api/interceptors": [
 				"libs/api/interceptors/src/index.ts"
 			],
-			"@master-bard/translation": ["libs/translation/src/index.ts"]
+			"@master-bard/translation": ["libs/translation/src/index.ts"],
+			"@master-bard/prisma/api": ["libs/prisma/api/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
