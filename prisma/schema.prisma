@@ -25,7 +25,7 @@ model User {
    Campaign        Campaign[]
    AppBlob         AppBlob[]
    AudioModule     AudioModule[]
-   Notes           Notes[]
+   Note           Note[]
 }
 
 model Campaign {
@@ -41,7 +41,7 @@ model Campaign {
    User            User              @relation(fields: [createdBy], references: [id], onDelete: Cascade)
    CampaignProfile CampaignProfile[]
    Playlist        Playlist[]
-   Notes           Notes[]
+   Note           Note[]
 }
 
 model CampaignProfile {
@@ -106,7 +106,7 @@ model Playlist {
    AudioModules AudioModule[]
 }
 
-model Notes {
+model Note {
    id           String   @id @default(uuid())
    createdAt    DateTime @default(now())
    updatedAt    DateTime @updatedAt
