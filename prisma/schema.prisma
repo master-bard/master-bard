@@ -1,6 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
-
+// Multiple entities https://github.com/prisma/prisma/discussions/3960
 generator client {
    provider = "prisma-client-js"
 }
@@ -12,18 +12,126 @@ datasource db {
 
 model User {
    // BASE USER ENTITY
+   id              String            @id @default(uuid())
+   createdAt       DateTime          @default(now())
+   updatedAt       DateTime          @updatedAt
+   isActive        Boolean           @default(false)
+   //
+   username        String            @unique
+   password        String
+   email           String            @unique
+   role            Role              @default(USER)
+   CampaignProfile CampaignProfile[]
+   Campaign        Campaign[]
+   AppBlob         AppBlob[]
+   AudioModule     AudioModule[]
+   Notes           Notes[]
+}
+
+model Campaign {
+   id          String   @id @default(uuid())
+   name        String
+   description String?
+   createdAt   DateTime @default(now())
+   updatedAt   DateTime @updatedAt
+   isActive    Boolean  @default(true)
+
+   // relations
+   createdBy       String
+   User            User              @relation(fields: [createdBy], references: [id], onDelete: Cascade)
+   CampaignProfile CampaignProfile[]
+   Playlist        Playlist[]
+   Notes           Notes[]
+}
+
+model CampaignProfile {
+   id        String       @id @default(uuid())
+   createdAt DateTime     @default(now())
+   updatedAt DateTime     @updatedAt
+   isActive  Boolean      @default(false)
+   role      CampaignRole @default(PLAYER)
+
+   // relations
+   userId     String
+   User       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+   campaignId String
+   Campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+}
+
+model AppBlob {
    id        String   @id @default(uuid())
    createdAt DateTime @default(now())
    updatedAt DateTime @updatedAt
-   isActive  Boolean  @default(false)
-   //
-   username  String   @unique
-   password  String
-   email     String   @unique
-   role      Role     @default(USER)
+   isActive  Boolean  @default(true)
+   url       String?
+   name      String
+   type      String
+   file      Bytes?   @db.ByteA
+
+   // relations
+   userId           String
+   User             User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+   AudioModuleFile  AudioModule[] @relation("AudioModuleFile")
+   AudioModuleImage AudioModule[] @relation("AudioModuleImage")
+}
+
+model AudioModule {
+   id        String   @id @default(uuid())
+   createdAt DateTime @default(now())
+   updatedAt DateTime @updatedAt
+   isActive  Boolean  @default(true)
+   name      String
+
+   type AudioType
+
+   // relations
+   userId   String
+   user     User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+   fileId   String
+   File     AppBlob    @relation("AudioModuleFile", fields: [fileId], references: [id])
+   imgageId String?
+   Image    AppBlob?   @relation("AudioModuleImage", fields: [imgageId], references: [id])
+   Playlist Playlist[]
+}
+
+model Playlist {
+   id        String   @id @default(uuid())
+   createdAt DateTime @default(now())
+   updatedAt DateTime @updatedAt
+   isActive  Boolean  @default(true)
+   name      String
+
+   // relations
+   Campaigns    Campaign[]
+   AudioModules AudioModule[]
+}
+
+model Notes {
+   id           String   @id @default(uuid())
+   createdAt    DateTime @default(now())
+   updatedAt    DateTime @updatedAt
+   isActive     Boolean  @default(true)
+   name         String
+   jsonRichText Json?
+   public       Boolean  @default(false)
+
+   Campaign   Campaign? @relation(fields: [campaignId], references: [id])
+   campaignId String?
+   createdBy  String
+   User       User      @relation(fields: [createdBy], references: [id], onDelete: Cascade)
+}
+
+enum AudioType {
+   MUSIC
+   SOUND
+}
+
+enum CampaignRole {
+   GM
+   PLAYER
 }
 
 enum Role {
    USER
-	SYS_ADMIN
+   SYS_ADMIN
 }
