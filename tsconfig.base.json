@@ -27,6 +27,7 @@
 			"@master-bard/api/interfaces": ["libs/api/interfaces/src/index.ts"],
 			"@master-bard/api/services": ["libs/api/services/src/index.ts"],
 			"@master-bard/api/utils": ["libs/api/utils/src/index.ts"],
+			"@master-bard/translation": ["libs/translation/src/index.ts"],
 			"@master-bard/prisma/api": ["libs/prisma/api/src/index.ts"]
 		}
 	},
