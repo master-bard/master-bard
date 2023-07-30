@@ -15,11 +15,18 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
+			"@master-bard/api/controllers": ["libs/api/controllers/src/index.ts"],
+			"@master-bard/api/decorators": ["libs/api/decorators/src/index.ts"],
+			"@master-bard/api/dtos": ["libs/api/dtos/src/index.ts"],
 			"@master-bard/api/enums": ["libs/api/enums/src/index.ts"],
 			"@master-bard/api/exceptions": ["libs/api/exceptions/src/index.ts"],
+			"@master-bard/api/features": ["libs/api/features/src/index.ts"],
 			"@master-bard/api/interceptors": [
 				"libs/api/interceptors/src/index.ts"
 			],
+			"@master-bard/api/interfaces": ["libs/api/interfaces/src/index.ts"],
+			"@master-bard/api/services": ["libs/api/services/src/index.ts"],
+			"@master-bard/api/utils": ["libs/api/utils/src/index.ts"],
 			"@master-bard/translation": ["libs/translation/src/index.ts"],
 			"@master-bard/prisma/api": ["libs/prisma/api/src/index.ts"]
 		}
