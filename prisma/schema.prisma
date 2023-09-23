@@ -21,11 +21,11 @@ model User {
    password        String
    email           String            @unique
    role            Role              @default(USER)
-   CampaignProfile CampaignProfile[]
-   Campaign        Campaign[]
-   AppBlob         AppBlob[]
-   AudioModule     AudioModule[]
-   Note           Note[]
+   campaignProfile CampaignProfile[]
+   campaign        Campaign[]
+   appBlob         AppBlob[]
+   audioModule     AudioModule[]
+   note            Note[]
 }
 
 model Campaign {
@@ -38,10 +38,10 @@ model Campaign {
 
    // relations
    createdBy       String
-   User            User              @relation(fields: [createdBy], references: [id], onDelete: Cascade)
-   CampaignProfile CampaignProfile[]
-   Playlist        Playlist[]
-   Note           Note[]
+   user            User              @relation(fields: [createdBy], references: [id], onDelete: Cascade)
+   campaignProfile CampaignProfile[]
+   playlist        Playlist[]
+   note            Note[]
 }
 
 model CampaignProfile {
@@ -53,9 +53,9 @@ model CampaignProfile {
 
    // relations
    userId     String
-   User       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+   user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
    campaignId String
-   Campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+   campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
 }
 
 model AppBlob {
@@ -70,9 +70,9 @@ model AppBlob {
 
    // relations
    userId           String
-   User             User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-   AudioModuleFile  AudioModule[] @relation("AudioModuleFile")
-   AudioModuleImage AudioModule[] @relation("AudioModuleImage")
+   user             User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+   audioModuleFile  AudioModule[] @relation("AudioModuleFile")
+   audioModuleImage AudioModule[] @relation("AudioModuleImage")
 }
 
 model AudioModule {
@@ -88,10 +88,10 @@ model AudioModule {
    userId   String
    user     User       @relation(fields: [userId], references: [id], onDelete: Cascade)
    fileId   String
-   File     AppBlob    @relation("AudioModuleFile", fields: [fileId], references: [id])
+   file     AppBlob    @relation("AudioModuleFile", fields: [fileId], references: [id])
    imgageId String?
-   Image    AppBlob?   @relation("AudioModuleImage", fields: [imgageId], references: [id])
-   Playlist Playlist[]
+   image    AppBlob?   @relation("AudioModuleImage", fields: [imgageId], references: [id])
+   playlist Playlist[]
 }
 
 model Playlist {
@@ -102,8 +102,8 @@ model Playlist {
    name      String
 
    // relations
-   Campaigns    Campaign[]
-   AudioModules AudioModule[]
+	campaigns    Campaign[]
+   audioModules AudioModule[]
 }
 
 model Note {
@@ -115,10 +115,10 @@ model Note {
    jsonRichText Json?
    public       Boolean  @default(false)
 
-   Campaign   Campaign? @relation(fields: [campaignId], references: [id])
+   campaign   Campaign? @relation(fields: [campaignId], references: [id])
    campaignId String?
    createdBy  String
-   User       User      @relation(fields: [createdBy], references: [id], onDelete: Cascade)
+   user       User      @relation(fields: [createdBy], references: [id], onDelete: Cascade)
 }
 
 enum AudioType {

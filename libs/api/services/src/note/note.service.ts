@@ -16,7 +16,11 @@ export class NoteService {
 	}
 
 	findAll(): Promise<Note[]> {
-		return this.prismaService.note.findMany();
+		return this.prismaService.note.findMany({
+			include: {
+				user: true,
+			}
+		});
 	}
 
 	findOneById(id: string) {
